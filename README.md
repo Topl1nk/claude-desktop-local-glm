@@ -29,7 +29,7 @@ available and the vendors' official installers otherwise.
 ## Installation
 
 1. Install [Claude Desktop](https://claude.ai/download).
-2. Download the latest release — **Source code (zip)** on the [Releases page](https://github.com/Topl1nk/claude-desktop-local-glm/releases/latest) — and unzip it
+2. Download the latest release — **Source code (zip)** on the [Releases page](../../releases/latest) — and unzip it
    into a folder with a plain Latin path, for example `C:\AI\Claude-Local`.
 3. In PowerShell run:
 
