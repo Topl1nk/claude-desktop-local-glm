@@ -102,7 +102,11 @@ foreach ($sha in $blobs.Keys) {
   $name = $blobs[$sha]
   Scan "$name (file name)" $name
   $raw = (git cat-file -p $sha) -join "`n"
-  if ($raw.IndexOf([char]0) -ge 0) { $findings.Add("$name  [binary file - check that it is yours to publish]"); continue }
+  if ($raw.IndexOf([char]0) -ge 0) {
+    # Screenshots in docs/ are expected; their pixels cannot be scanned, so check them by eye.
+    if ($name -match '^docs/[^ ]+\.(png|jpg|jpeg|gif|webp) @') { continue }
+    $findings.Add("$name  [binary file - check that it is yours to publish]"); continue
+  }
   Scan $name $raw
 }
 

@@ -9,6 +9,8 @@
 !/HANDBOOK.md
 !/install.ps1
 !/LICENSE
+# docs: screenshots for the README - check each one by eye for personal data before adding it
+!/docs/
 !/config-templates/
 # Karpathy's guidelines have no licence to redistribute: install.ps1 downloads them.
 /config-templates/karpathy-guidelines.md

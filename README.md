@@ -5,6 +5,8 @@
 Claude Desktop running on the local GLM-4.7-Flash model through Ollama: no subscription, no cloud.
 The regular Claude subscription can run next to it in a separate window.
 
+![The local Claude Desktop with the GLM-4.7-Flash model selected; grey shortcut for the local version, orange for the subscription](docs/screenshot.png)
+
 - **Model:** GLM-4.7-Flash, a 30B MoE (~3B active), up to 131K context. On an i9-12900KS + RTX 3070
   8 GB it generates 30–32 tokens/s.
 - **Documents:** PDF, DOCX and scans (OCR) through the bundled `docs` MCP server and MinerU, all local.
