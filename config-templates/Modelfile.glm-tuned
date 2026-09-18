@@ -1,0 +1,8 @@
+# GLM-4.7-Flash for Claude Desktop local mode. install.ps1 fills in the {{...}} values for this PC.
+# num_batch 2048: with Ollama's default batch a 25K-token Claude Code prompt takes 11 min instead of 33 s.
+# num_ctx: explicit, so Ollama's global default is not applied per request.
+# num_thread: physical cores (reference PC i9-12900KS: 16 threads = 32.5 tok/s, 12 = 29.5, 8 = 30.0).
+FROM glm-4.7-flash
+PARAMETER num_batch 2048
+PARAMETER num_ctx {{NUM_CTX}}
+PARAMETER num_thread {{NUM_THREAD}}

@@ -1,0 +1,19 @@
+# Self-hosted SearXNG for the docs MCP server's web_search tool (optional: without it the tool
+# falls back to DuckDuckGo). desktop-mode.ps1 starts it automatically when Docker is available.
+# Manual start:  docker compose -f scripts/searxng/docker-compose.yml up -d
+# Check:         curl "http://127.0.0.1:8888/search?q=test&format=json"
+# The secret key lives in .env next to this file (created by install.ps1, never committed).
+# Unique names: a plain "searxng" container from another compose project would block this one.
+name: claude-local
+services:
+  searxng:
+    image: searxng/searxng:latest
+    container_name: claude-local-searxng
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8888:8080"
+    volumes:
+      - ./config:/etc/searxng:rw
+    environment:
+      - SEARXNG_BASE_URL=http://127.0.0.1:8888/
+      - SEARXNG_SECRET=${SEARXNG_SECRET:?create scripts/searxng/.env with SEARXNG_SECRET=<random hex> (install.ps1 does this)}

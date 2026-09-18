@@ -1,0 +1,8 @@
+{
+  "enabledPlugins": {},
+  "autoUpdatesChannel": "latest",
+  "theme": "dark",
+  "permissions": {
+    "deny": ["WebSearch"]
+  }
+}

@@ -1,0 +1,41 @@
+# WHITELIST. This folder also holds private data (chats in desktop-data\, transcripts in
+# claude-config\projects\, MinerU's document database in mineru\, machine notes in LOCAL-NOTES.md).
+# Everything is ignored unless listed below - add new shareable files here explicitly.
+/*
+!/.gitignore
+!/README.md
+!/README.uk.md
+!/README.ru.md
+!/HANDBOOK.md
+!/install.ps1
+!/LICENSE
+!/config-templates/
+# Karpathy's guidelines have no licence to redistribute: install.ps1 downloads them.
+/config-templates/karpathy-guidelines.md
+!/scripts/
+!/tests/
+
+# scripts: only source files
+/scripts/*
+!/scripts/*.ps1
+!/scripts/*.py
+!/scripts/*.cs
+!/scripts/*.cmd
+!/scripts/README.md
+!/scripts/searxng/
+/scripts/searxng/.env
+
+# tests: only the maintained checks and benchmarks
+/tests/*
+!/tests/test_docs_mcp.py
+!/tests/test_attachments.py
+!/tests/test_unicode.py
+!/tests/test_desktop_api.py
+!/tests/test_probe.py
+!/tests/test_scan_pdf.py
+!/tests/bench_one.py
+!/tests/sandbox-test.ps1
+!/tests/privacy-audit.ps1
+
+__pycache__/
+*.pyc

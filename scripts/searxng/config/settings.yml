@@ -1,0 +1,16 @@
+# Minimal SearXNG config for local agent use: JSON API on, rate limiter off (local only).
+use_default_settings: true
+
+server:
+  # Local instance bound to 127.0.0.1 by docker-compose; not reachable from the network.
+  secret_key: "set-by-SEARXNG_SECRET-in-.env"  # real key: .env next to docker-compose.yml (created by install.ps1)
+  limiter: false
+  image_proxy: false
+
+search:
+  # "json" is what the search adapter asks for; SearXNG ships with html only.
+  formats:
+    - html
+    - json
+  safe_search: 0
+  autocomplete: ""
