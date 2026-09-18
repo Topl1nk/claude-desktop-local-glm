@@ -343,6 +343,7 @@ and **no** `configuration warning` line.
 | `no text could be extracted from this file` | a scan without a text layer and MinerU unavailable | `mineru server status`; re-run `install.ps1` |
 | Search returns an error | SearXNG down and DuckDuckGo unreachable | start SearXNG (section 6) or check the internet connection |
 | The local window uses ~116K prompt tokens | Desktop's own built-in tools, not Claude Code plugins | expected |
+| The subscription window lost its settings; `%APPDATA%\Claude\claude_desktop_config.json` holds only `mcpServers` (maybe UTF-16) | Something (e.g. the local model adding an MCP server in the wrong place) overwrote the subscription's config | While a subscription window that started before the damage is still open: toggle any setting in it (Settings → Claude Code → "Keep computer awake" off and on) — the app writes its in-memory settings back. Local MCP servers belong in the local profile (section 8), never in that file |
 | "Additional setup needed … Feature enablement failed" in Desktop | Desktop's Cowork workspace needs the Windows feature Virtual Machine Platform | optional; admin PowerShell: `Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -All`, reboot |
 
 ---
