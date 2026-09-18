@@ -29,7 +29,8 @@ Ollama, uv, MinerU и Visual C++ runtime установщик поставит �
 ## Установка
 
 1. Установите [Claude Desktop](https://claude.ai/download).
-2. Скачайте этот репозиторий в папку без кириллицы, например `C:\AI\Claude-Local`.
+2. Скачайте последний релиз — **Source code (zip)** на [странице релизов](https://github.com/Topl1nk/claude-desktop-local-glm/releases/latest) — и распакуйте
+   его в папку без кириллицы, например `C:\AI\Claude-Local`.
 3. В PowerShell выполните:
 
    ```powershell

@@ -240,6 +240,10 @@ function Write-Utf8([string]$path, [string]$text) {
 }
 
 Say (T 'header' $Root) 'White'
+# Files unpacked from a downloaded zip carry Windows' "downloaded from the internet" mark, which can
+# block the helper scripts and the C# helper the launcher compiles. The user chose to run this folder.
+Get-ChildItem -LiteralPath $Root -Recurse -File -Include *.ps1, *.cs, *.py, *.cmd -ErrorAction SilentlyContinue |
+  Unblock-File -ErrorAction SilentlyContinue
 if ($Root -match '[^\x00-\x7F]') { Say (T 'nonAscii') 'Yellow' }
 
 # ---------------------------------------------------------------- Models folder
