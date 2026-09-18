@@ -67,7 +67,8 @@ $generic = [ordered]@{
   'public IP address'       = '(?<![\d.])(?!127\.|10\.|192\.168\.|0\.0\.|255\.)\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}(?![\d.])'
 }
 # Known placeholders that look like secrets but are not.
-$allow = 'ollama-local|<random hex>|set-by-SEARXNG_SECRET|@users\.noreply\.github\.com|^Copyright \(c\) \d{4} \S+$'
+# The repository's own GitHub address shows the owner's account name, which is public anyway.
+$allow = 'ollama-local|<random hex>|set-by-SEARXNG_SECRET|@users\.noreply\.github\.com|^Copyright \(c\) \d{4} \S+$|github\.com/[^/\s)]+/claude-desktop-local-glm'
 
 # ---------------------------------------------------------------- scan
 $findings = New-Object System.Collections.Generic.List[string]
