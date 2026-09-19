@@ -38,26 +38,6 @@ A banner ("Microsoft Windows [Version ...]") with no other output means the comm
 fix the call, do not conclude that the script or the exe is broken.
 C/C++ here builds with MSVC 2019 (`cl`), which needs `vcvars64.bat` in the same cmd call; `gcc` is not installed.
 
-## Adding MCP servers or changing Claude settings
-
-You run in Claude Desktop's LOCAL mode. It has its own configuration, separate from the subscription.
-
-- **Never write, create or overwrite anything in `%APPDATA%\Claude\` or `%USERPROFILE%\.claude\`.**
-  That is the subscription version's configuration: overwriting `claude_desktop_config.json` there
-  wipes all of the user's settings and does not connect anything to this local window.
-- A local MCP server goes into `managedMcpServers` of the active local profile:
-  `%LOCALAPPDATA%\Claude-3p\configLibrary\<appliedId>.json` (the id is `appliedId` in `_meta.json`
-  next to it), as `{"name": "x", "transport": "stdio", "command": "<full path to an .exe>", "args": []}`.
-  A `.cmd`/`.bat` server is started as `"command": "C:\\Windows\\System32\\cmd.exe"`,
-  `"args": ["/d", "/c", "<full path to the .cmd>"]`.
-- Before editing, copy the profile to `{{ROOT}}\backup\`. Edit it by parsing the JSON, adding or
-  changing one entry and writing it back as UTF-8 without a BOM: in PowerShell
-  `[IO.File]::WriteAllText($path, $json, (New-Object Text.UTF8Encoding($false)))` - never `Out-File`
-  or `Set-Content`, which write UTF-16/ANSI that the app cannot read.
-- The change takes effect after the local window is restarted through its shortcut. Do not say
-  "connected" before the user restarted it and the MCP tools actually appear.
-- Unsure where something belongs? Describe the change and ask the user instead of trying paths.
-
 ## Web search
 
 Use `mcp__docs__web_search(query)`. It queries the local SearXNG instance, or DuckDuckGo when
